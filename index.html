@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Aviafix Solution FZE | Global Aircraft Parts & Supply Chain Excellence</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="aviafix.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #0a2c1c;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Премиум цвета */
+        :root {
+            --primary-dark: #0a2c1c;
+            --primary: #1a5a38;
+            --primary-light: #2b7a4a;
+            --accent-gold: #c9a03d;
+            --accent-gold-light: #dbb862;
+            --gray-bg: #fafcfa;
+            --border-light: #e6ede8;
+            --text-dark: #0a2c1c;
+            --text-muted: #2f5543;
+            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+        }
+
+        /* ГЛОБАЛЬНО: ВСЕ ТЕКСТЫ МАКСИМАЛЬНО ЖИРНЫЕ */
+        body, p, span, a, li, div, button, label, input, textarea, 
+        .stat-label, .logo-since, .hero-description, .product-item, 
+        .contact-line span, .contact-line a, footer p, footer a, 
+        .card p, .section-title p, .warehouse-badge span, .partner-logos span,
+        .hero-stats .stat span, .hero-stats .stat .stat-label {
+            font-weight: 700 !important;
+        }
+
+        h1, h2, h3, .logo-main, .logo-main span, .hero-excellence, .stat-num, 
+        .card h3, .contact-details h3, .warehouse-badge p, nav a, 
+        .partners h4, .footer-main p, .footer-links a, .footer-bottom span {
+            font-weight: 800 !important;
+        }
+
+        .hero h1, .hero-excellence, .stat-num {
+            font-weight: 800 !important;
+        }
+        
+        .hero-description, .product-item, .card p {
+            font-weight: 700 !important;
+        }
+
+        .logo-main, .logo-main span {
+            font-weight: 800 !important;
+            font-size: clamp(1.2rem, 5vw, 1.75rem);
+            color: var(--primary-dark);
+            letter-spacing: -0.3px;
+        }
+        .logo-main span {
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 5vw, 48px);
+            width: 100%;
+        }
+
+        /* ========== HEADER (полностью адаптивный) ========== */
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: clamp(12px, 3vw, 20px) 0;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: clamp(12px, 3vw, 20px);
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            width: clamp(70px, 12vw, 114px);
+            height: auto;
+            display: block;
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            background: white;
+            padding: 4px;
+            object-fit: contain;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .logo-img:hover {
+            border-color: var(--accent-gold);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-since {
+            font-size: clamp(0.55rem, 2vw, 0.7rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-light);
+            margin-top: 4px;
+        }
+
+        nav {
+            flex-shrink: 0;
+        }
+        nav ul {
+            display: flex;
+            gap: clamp(16px, 4vw, 44px);
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav a {
+            text-decoration: none;
+            font-weight: 800;
+            color: var(--text-dark);
+            font-size: clamp(0.8rem, 3vw, 1rem);
+            transition: 0.2s;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--accent-gold);
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            background: linear-gradient(135deg, #f8fbf6 0%, #ffffff 100%);
+            padding: clamp(40px, 10vw, 88px) 0;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 0.85fr;
+            gap: clamp(30px, 6vw, 64px);
+            align-items: center;
+        }
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-content {
+                text-align: center;
+            }
+            .hero-description {
+                text-align: center;
+                border-left: none;
+                border-top: 4px solid var(--accent-gold);
+                padding: 20px 0 0 0;
+                margin-top: 20px;
+                border-radius: 0;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+        }
+        .hero h1 {
+            font-size: clamp(1.8rem, 7vw, 3.4rem);
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+        .hero-excellence {
+            font-size: clamp(1.1rem, 4.5vw, 2rem);
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            margin-top: 8px;
+            letter-spacing: -0.2px;
+        }
+        .hero-description {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            font-weight: 700;
+            color: #1e4632;
+            margin: 30px 0 35px;
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 20px;
+            background: rgba(201, 160, 61, 0.04);
+            border-radius: 0 12px 12px 0;
+        }
+        .hero-description i {
+            margin-right: 8px;
+            color: var(--accent-gold);
+        }
+        .hero-stats {
+            display: flex;
+            gap: clamp(25px, 8vw, 60px);
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        @media (max-width: 900px) {
+            .hero-stats {
+                justify-content: center;
+            }
+        }
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .stat-num {
+            font-size: clamp(1.8rem, 6vw, 2.6rem);
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        .stat-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #517a66;
+        }
+        .hero-image {
+            text-align: center;
+        }
+        .hero-image i {
+            font-size: clamp(5rem, 15vw, 10rem);
+            color: var(--primary-light);
+            opacity: 0.3;
+        }
+
+        /* PARTNERS */
+        .partners {
+            padding: clamp(20px, 5vw, 34px) 0;
+            border-bottom: 1px solid var(--border-light);
+            background: white;
+            text-align: center;
+        }
+        .partners h4 {
+            font-weight: 800;
+            color: var(--primary-light);
+            margin-bottom: 20px;
+            font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+            letter-spacing: 3px;
+        }
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            gap: clamp(12px, 4vw, 36px);
+            flex-wrap: wrap;
+        }
+        .partner-logos span {
+            font-weight: 800;
+            padding: clamp(6px, 2vw, 10px) clamp(18px, 5vw, 38px);
+            background: var(--gray-bg);
+            border-radius: 60px;
+            color: var(--primary-dark);
+            font-size: clamp(0.75rem, 2.5vw, 1rem);
+            border: 1px solid var(--border-light);
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        @media (max-width: 500px) {
+            .partner-logos span {
+                white-space: normal;
+                padding: 6px 16px;
+            }
+        }
+        .partner-logos span:hover {
+            border-color: var(--accent-gold);
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        /* СЕКЦИИ */
+        section {
+            padding: clamp(40px, 8vw, 80px) 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: clamp(30px, 6vw, 56px);
+        }
+        .section-title h2 {
+            font-size: clamp(1.5rem, 5vw, 2.4rem);
+            font-weight: 800;
+            color: var(--primary-dark);
+            letter-spacing: -0.3px;
+        }
+        .section-title p {
+            font-size: clamp(0.85rem, 3vw, 1.05rem);
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        /* КАРТОЧКИ 3 КОЛОНКИ — АДАПТИВНАЯ СЕТКА */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(20px, 4vw, 32px);
+        }
+        .card {
+            background: white;
+            padding: clamp(24px, 5vw, 38px) clamp(20px, 4vw, 30px);
+            border-radius: 28px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+            box-shadow: var(--shadow-sm);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent-gold-light);
+        }
+        .card i {
+            font-size: clamp(1.8rem, 5vw, 2.4rem);
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .card p {
+            line-height: 1.55;
+            font-weight: 700;
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+        }
+
+        /* INVENTORY */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+        .product-item {
+            background: var(--gray-bg);
+            padding: clamp(10px, 2.5vw, 15px) clamp(16px, 4vw, 22px);
+            border-radius: 80px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            border: 1px solid var(--border-light);
+            transition: 0.2s;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+        }
+        .product-item:hover {
+            background: white;
+            border-color: var(--accent-gold);
+            transform: translateX(3px);
+        }
+        .product-item i {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: var(--primary);
+            min-width: 28px;
+            text-align: center;
+        }
+
+        /* КОНТАКТЫ */
+        .contact-section {
+            background: var(--gray-bg);
+            padding: clamp(40px, 8vw, 80px) 0;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: clamp(30px, 6vw, 52px);
+            background: white;
+            border-radius: 40px;
+            padding: clamp(28px, 6vw, 56px) clamp(24px, 5vw, 52px);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+        .contact-details h3 {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 28px;
+        }
+        .contact-line {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        @media (max-width: 480px) {
+            .contact-line {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+        .contact-line i {
+            width: clamp(44px, 8vw, 56px);
+            height: clamp(44px, 8vw, 56px);
+            background: var(--gray-bg);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            flex-shrink: 0;
+        }
+        .contact-line strong {
+            font-weight: 800;
+            display: block;
+            margin-bottom: 5px;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+        .contact-line a, .contact-line span {
+            font-weight: 700;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-gold-light);
+            font-size: clamp(0.85rem, 2.8vw, 0.95rem);
+            word-break: break-word;
+        }
+        .warehouse-badge {
+            background: var(--primary-dark);
+            color: white;
+            padding: clamp(30px, 6vw, 48px) clamp(20px, 5vw, 32px);
+            border-radius: 36px;
+            text-align: center;
+            background-image: radial-gradient(circle at 10% 20%, rgba(201,160,61,0.08) 2%, transparent 2.5%);
+            background-size: 24px 24px;
+        }
+        .warehouse-badge i {
+            font-size: clamp(2.2rem, 8vw, 3.2rem);
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+        .warehouse-badge p {
+            font-size: clamp(1rem, 4vw, 1.4rem);
+            font-weight: 800;
+            line-height: 1.4;
+        }
+        .warehouse-badge span {
+            font-weight: 700;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-dark);
+            color: #eef6f0;
+            padding: clamp(32px, 8vw, 52px) 0 clamp(20px, 5vw, 28px);
+        }
+        .footer-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+            margin-bottom: 24px;
+            gap: 18px;
+        }
+        .footer-main p {
+            font-weight: 700;
+            font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+            letter-spacing: 0.3px;
+        }
+        .footer-links {
+            display: flex;
+            gap: clamp(20px, 6vw, 36px);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #e2f0e8;
+            font-weight: 700;
+            text-decoration: none;
+            opacity: 0.85;
+            font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+        }
+        .footer-links a:hover { opacity: 1; }
+        .footer-bottom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .footer-bottom img {
+            width: clamp(40px, 8vw, 54px);
+            height: auto;
+            border: 1px solid var(--accent-gold);
+            border-radius: 10px;
+            background: white;
+            padding: 3px;
+        }
+        .footer-bottom span {
+            font-weight: 700;
+            font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+            opacity: 0.88;
+        }
+
+        #capabilities {
+            background: #fbfefb;
+        }
+
+        /* Дополнительные адаптивные улучшения */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo {
+                justify-content: center;
+                width: 100%;
+            }
+            nav ul {
+                width: 100%;
+                justify-content: center;
+            }
+            nav a {
+                white-space: nowrap;
+            }
+            .card {
+                text-align: center;
+            }
+            .card i {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 12px;
+            }
+            nav a {
+                font-size: 0.75rem;
+            }
+            .product-item {
+                border-radius: 40px;
+            }
+            .contact-grid {
+                padding: 24px 20px;
+            }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <img src="aviafix.jpg" alt="Aviafix Solution FZE" class="logo-img" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 420 120\'%3E%3Crect width=\'420\' height=\'120\' fill=\'%231a5a38\' rx=\'12\' stroke=\'%23c9a03d\' stroke-width=\'3\'/%3E%3Ctext x=\'28\' y=\'70\' font-size=\'44\' fill=\'%23c9a03d\' font-weight=\'800\' font-family=\'Inter, Arial\'%3EAVIAFIX%3C/text%3E%3Ctext x=\'240\' y=\'70\' font-size=\'38\' fill=\'%23ffffff\' font-weight=\'800\' font-family=\'Inter, Arial\'%3ESOLUTION FZE%3C/text%3E%3C/svg%3E'">
+            <div class="logo-text">
+                <div class="logo-main">AVIAFIX SOLUTION FZE</div>
+                <div class="logo-since">SINCE 2025 · UAE</div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#company">Company</a></li>
+                <li><a href="#capabilities">Capabilities</a></li>
+                <li><a href="#products">Inventory</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>
+                    Aircraft Spare Parts
+                    <span class="hero-excellence">Global Trading & Supply Chain Excellence</span>
+                </h1>
+                <div class="hero-description">
+                    Proudly based in SAIF-ZONE, Sharjah — connecting the world with certified aviation components.
+                </div>
+                <div class="hero-stats">
+                    <div class="stat"><span class="stat-num">2025</span><span class="stat-label">ESTABLISHED</span></div>
+                    <div class="stat"><span class="stat-num">4</span><span class="stat-label">CONTINENTS</span></div>
+                    <div class="stat"><span class="stat-num">100+</span><span class="stat-label">PARTNERS</span></div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-globe-americas"></i>
+            </div>
+        </div>
+    </section>
+
+    <div class="partners">
+        <div class="container">
+            <h4>Trusted partners across</h4>
+            <div class="partner-logos">
+                <span>EUROPE</span>
+                <span>CHINA</span>
+                <span>USA</span>
+                <span>UAE</span>
+            </div>
+        </div>
+    </div>
+
+    <section id="company">
+        <div class="container">
+            <div class="section-title">
+                <h2>A Global Aviation Partner</h2>
+                <p>Built on reliability, speed, and uncompromising quality</p>
+            </div>
+            <div class="grid-3">
+                <div class="card"><i class="fas fa-sitemap"></i><h3>Organizational Structure</h3><p>Lean operational core with extensive international network of pre-vetted suppliers across Europe, USA, China, and the UAE.</p></div>
+                <div class="card"><i class="fas fa-map-pin"></i><h3>Strategic Location</h3><p>SAIF Zone, Sharjah — 125 m² warehouse (Q3-180) ensuring rapid redistribution to any continent.</p></div>
+                <div class="card"><i class="fas fa-shield-alt"></i><h3>Quality & Risk</h3><p>Every component meets international aviation standards. Guaranteed safety and performance.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="capabilities">
+        <div class="container">
+            <div class="section-title">
+                <h2>Core Capabilities</h2>
+                <p>Driving efficiency through innovation and partnerships</p>
+            </div>
+            <div class="grid-3">
+                <div class="card"><i class="fas fa-globe-americas"></i><h3>Global Sourcing</h3><p>Long-standing relationships with reputable manufacturers. Full traceability on all components.</p></div>
+                <div class="card"><i class="fas fa-chart-line"></i><h3>Supply Chain Optimization</h3><p>Modern methodologies reduce lead times. Optimizing logistics for cost and speed.</p></div>
+                <div class="card"><i class="fas fa-check-double"></i><h3>Rigorous QA</h3><p>High-level control at every stage. Every component verified for airworthiness.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Select Inventory</h2>
+                <p>A sample from our certified stock</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-item"><i class="fas fa-microchip"></i> Compenser for VKRI-4</div>
+                <div class="product-item"><i class="fas fa-bell"></i> Compenser Alarm Model 4</div>
+                <div class="product-item"><i class="fas fa-ruler"></i> Vibration Sensor MV-0.4-1</div>
+                <div class="product-item"><i class="fas fa-satellite-dish"></i> Signaling Sensor DSL-40T</div>
+                <div class="product-item"><i class="fas fa-tachometer-alt"></i> Fuel Indicator IT-9-5</div>
+                <div class="product-item"><i class="fas fa-wind"></i> Oxygen Block AKB-17MU-B-2</div>
+                <div class="product-item"><i class="fas fa-cog"></i> Landing Gear Valve RD20D</div>
+                <div class="product-item"><i class="fas fa-compress-alt"></i> Pressure Reduction CG122-2</div>
+                <div class="product-item"><i class="fas fa-mountain"></i> Altitude Corrector KV-16-1</div>
+                <div class="product-item"><i class="fas fa-tools"></i> Drill ZBN-1-3</div>
+                <div class="product-item"><i class="fas fa-brake-warning"></i> CT Brake 192a 010</div>
+            </div>
+            <p style="text-align: center; margin-top: 40px; color: var(--primary-light); font-weight: 700; font-size: clamp(0.75rem, 2.5vw, 0.9rem);">* Complete catalog available upon request.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container contact-grid">
+            <div class="contact-details">
+                <h3>Get in touch</h3>
+                <div class="contact-line"><i class="fas fa-phone-alt"></i><div><strong>Phone</strong><br><span>+971 04 566 87 46</span></div></div>
+                <div class="contact-line"><i class="fas fa-envelope"></i><div><strong>Email</strong><br><a href="mailto:aviafixsolutions.fze@gmail.com">aviafixsolutions.fze@gmail.com</a></div></div>
+                <div class="contact-line"><i class="fas fa-map-pin"></i><div><strong>Warehouse (SAIF Zone)</strong><br><a href="#" target="_blank">125 m², Q3-180, Sharjah, UAE</a></div></div>
+            </div>
+            <div class="warehouse-badge">
+                <i class="fas fa-warehouse"></i>
+                <p>Strategically located in SAIF-ZONE<br>125 m² · Q3-180</p>
+                <div style="margin-top: 28px; border-top: 1px solid rgba(201,160,61,0.25); padding-top: 20px;">
+                    <i class="fas fa-clock"></i> <span style="font-weight: 800;">24/7 global coordination</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-main">
+            <p>© 2025 Aviafix Solution FZE — Aircraft Spare Parts & Components Trading</p>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Quality Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <img src="aviafix.jpg"Aviafix" style="width: clamp(40px, 8vw, 54px);" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 160 60\'%3E%3Crect width=\'160\' height=\'60\' fill=\'%23c9a03d\' rx=\'8\'/%3E%3Ctext x=\'18\' y=\'40\' font-size=\'30\' fill=\'%231a5a38\' font-weight=\'800\'%3EAF%3C/text%3E%3C/svg%3E'">
+            <span>Committed to safety, compliance, and partnership</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
